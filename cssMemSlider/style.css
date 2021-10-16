@@ -1,0 +1,143 @@
+/* Main Styles */
+*{
+  box-sizing:border-box
+}
+body{
+  background:#25282a;
+  box-sizing:border-box;
+  overflow:hidden;
+}
+input{
+  display:none
+}
+/* Slider */
+#container{
+  width:100%;
+  border-radius: 1.5em;
+  overflow:hidden
+}
+#slider{
+  margin: 0 auto;
+  max-width: 73.846em;
+  padding: 1.25em;
+}
+#slides .inner{
+  width: 500%;
+}
+#slides article{
+  width: 20%;
+  float: left;
+}
+article img{
+  width: 100%
+}
+#active{
+  position: relative;
+  margin: 2% 1%;
+  float: right;
+}
+#active label{
+  border-radius: 0.625em;
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background: #71abfe;
+}
+#active label:hover{
+  background: white;
+  border: 0.125em solid white !important;
+}
+/* Change Slide */
+#slide1:checked ~ #slides .inner{margin-left:0}
+#slide2:checked ~ #slides .inner{margin-left:-100%}
+#slide3:checked ~ #slides .inner{margin-left:-200%}
+#slide4:checked ~ #slides .inner{margin-left:-300%}
+#slide5:checked ~ #slides .inner{margin-left:-400%}
+/* Label*/
+label{
+  margin-left: 0.875em;
+  cursor: pointer;
+  color: transparent;
+}
+label:hover{
+  cursor: pointer;
+}
+#slide1:checked ~ #active label:nth-child(1),#slide2:checked ~ #active label:nth-child(2),#slide3:checked ~ #active label:nth-child(3),#slide4:checked ~ #active label:nth-child(4),#slide5:checked ~ #active label:nth-child(5){
+  background:#000;
+  border: 0.125em solid #71abfe
+}
+/* Slider Animation */
+#slides .inner{
+  transition: all 750ms cubic-bezier(0.771,0.000,0.176,1.000);
+}
+/* TEXT */
+#text{
+  margin-top: 0.625em;
+  display: flex;
+}
+span{
+  font-size: 1.5rem;
+  color: white;
+  width: 100%;
+}
+.first, .second, .three, .four, .five{
+  opacity: 0;
+  overflow: hidden;
+  transition: all 750ms cubic-bezier(0.771,0.000,0.176,1.000);
+}
+
+#slide1:checked ~ #text .first{  
+  opacity: 1;
+  margin-left: 0%
+}
+#slide2:checked ~ #text .second{
+  opacity: 1;
+  margin-left:-225%;
+}
+#slide3:checked ~ #text .three{  
+  opacity: 1;
+  margin-left:-275%
+}
+#slide4:checked ~ #text .four{  
+  opacity: 1;
+  margin-left: -320%;
+}
+#slide5:checked ~ #text .five{  
+  opacity: 1;
+  margin-left: -505%;
+}
+/* Adaptive 785 */
+@media screen and (max-width: 49em) {
+  #active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2% 1%;
+    float: none;
+  }
+}
+/* Adaptive 650 */
+@media screen and (max-width: 40.6em) {
+  span{
+    font-size: 1rem;
+  }
+}
+/* Adaptive 480 */
+@media screen and (max-width: 30em) {
+  #active label{
+    width: 0.6em;
+    height: 0.6em;
+  }
+}
+/* Adaptive 450 */
+@media screen and (max-width: 28.2em) {
+  span{
+    font-size: 0.7rem;
+  }
+}
+/* Adaptive 340 */
+@media screen and (max-width: 21.2em) {
+  span{
+    font-size: 0.6rem;
+  }
+}
